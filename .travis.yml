@@ -17,6 +17,7 @@ script:
   -Dsonar.login=$SONAR
 deploy:
   provider: heroku
-  api_key: "$HEROKU"
+  api_key:
+    secure: $HEROKU
   on:
     branch: master
