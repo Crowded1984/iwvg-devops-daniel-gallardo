@@ -8,13 +8,13 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class UserTest {
+class UserTest {
 
     private User user;
 
     @BeforeEach
     void before() {
-        List<Fraction> fractions = new ArrayList<Fraction>();
+        List<Fraction> fractions = new ArrayList<>();
         Fraction fraction = new Fraction();
         fractions.add(fraction);
         this.user = new User("0", "Daniel", "Gallardo", fractions);
@@ -67,7 +67,7 @@ public class UserTest {
     @Test
     void testSetFractions() {
         user = new User();
-        List<Fraction> fractions = new ArrayList<Fraction>();
+        List<Fraction> fractions = new ArrayList<>();
         Fraction fraction = new Fraction();
         fractions.add(fraction);
         user.setFractions(fractions);
