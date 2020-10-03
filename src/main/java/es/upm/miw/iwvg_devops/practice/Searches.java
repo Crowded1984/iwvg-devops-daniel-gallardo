@@ -9,4 +9,12 @@ public class Searches {
                 .filter(user -> user.getFractions().stream().anyMatch(Fraction::isProper))
                 .map(user -> user.getFamilyName().substring(0, 1));
     }
+
+    public Stream<Double> findDecimalImproperFractionByUserName(String name){
+        return new UsersDatabase().findAll()
+                .filter(user-> user.getName().matches(name))
+                .flatMap(user -> user.getFractions().stream())
+                .filter(Fraction::isImproper)
+                .map(Fraction::decimal);
+    }
 }
