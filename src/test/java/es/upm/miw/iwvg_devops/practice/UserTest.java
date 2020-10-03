@@ -3,6 +3,7 @@ package es.upm.miw.iwvg_devops.practice;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -10,17 +11,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class UserTest {
 
     private User user;
-    private User user2;
 
     @BeforeEach
     void before() {
-        List<Fraction> fractions = new List<Fraction>();
+        List<Fraction> fractions = new ArrayList<Fraction>();
+        Fraction fraction = new Fraction();
+        fractions.add(fraction);
         this.user = new User("0", "Daniel", "Gallardo", fractions);
     }
 
     @Test
     void testUserId() {
-        assertEquals(0, user.getId());
+        assertEquals("0", user.getId());
     }
 
     @Test
@@ -35,13 +37,17 @@ public class UserTest {
 
     @Test
     void testUserFractions() {
-        assertEquals(null, user.getFractions());
+        Fraction fraction = new Fraction();
+        assertEquals(fraction.getNumerator(), user.getFractions().get(0).getNumerator());
+        assertEquals(fraction.getDenominator(), user.getFractions().get(0).getDenominator());
     }
 
     @Test
     void testEmptyConstructor() {
         user = new User();
-        assertEquals(null, user.getFractions());
+        Fraction fraction = new Fraction();
+        user.addFraction(fraction);
+        assertEquals(fraction, user.getFractions().get(0));
     }
 
     @Test
@@ -61,8 +67,12 @@ public class UserTest {
     @Test
     void testSetFractions() {
         user = new User();
-        user.setFractions(null);
-        assertEquals(null, user.getFractions());
+        List<Fraction> fractions = new ArrayList<Fraction>();
+        Fraction fraction = new Fraction();
+        fractions.add(fraction);
+        user.setFractions(fractions);
+        assertEquals(fraction.getNumerator(), user.getFractions().get(0).getNumerator());
+        assertEquals(fraction.getDenominator(), user.getFractions().get(0).getDenominator());
     }
 
     @Test
@@ -85,6 +95,6 @@ public class UserTest {
     void testInitials() {
         user = new User();
         user.setName("Daniel");
-        assertEquals("Da.", user.initials());
+        assertEquals("D.", user.initials());
     }
 }
