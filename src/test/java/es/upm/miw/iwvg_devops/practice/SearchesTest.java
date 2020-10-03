@@ -31,5 +31,10 @@ public class SearchesTest {
                         .collect(Collectors.toList()));
     }
 
+    @Test
+    void testFindFractionMultiplicationByUserFamilyName() {
+        assertEquals(12, new Searches().findFractionMultiplicationByUserFamilyName("López").getNumerator());
+        assertEquals(-240, new Searches().findFractionMultiplicationByUserFamilyName("López").getDenominator());
+    }
 
 }
