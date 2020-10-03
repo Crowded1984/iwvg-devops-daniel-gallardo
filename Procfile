@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/iwvg-devops-daniel-gallardo-0.0.1-SNAPSHOT.jar
+web: java -Dserver.port=$PORT $JAVA_OPTS -jar target/iwvg-devops-daniel-gallardo-1.1.0-SNAPSHOT.jar
