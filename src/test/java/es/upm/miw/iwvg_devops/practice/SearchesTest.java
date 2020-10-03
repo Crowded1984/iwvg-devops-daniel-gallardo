@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,4 +23,13 @@ public class SearchesTest {
                 new Searches().findDecimalImproperFractionByUserName("Antonio")
                         .collect(Collectors.toList()));
     }
+
+    @Test
+    void testFindUserIdByAllProperFraction() {
+        assertEquals(new ArrayList<String>(),
+                new Searches().findUserIdByAllProperFraction()
+                        .collect(Collectors.toList()));
+    }
+
+
 }
