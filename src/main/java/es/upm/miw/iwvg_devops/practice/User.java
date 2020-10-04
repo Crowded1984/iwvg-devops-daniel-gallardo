@@ -14,7 +14,7 @@ public class User {
     private List<Fraction> fractions;
 
     public User() {
-        this.fractions = new ArrayList<Fraction>();
+        this.fractions = new ArrayList<>();
     }
 
     public User(String id, String name, String familyName, List<Fraction> fractions) {
@@ -61,7 +61,7 @@ public class User {
     }
 
     public String initials() {
-        return this.name.substring(0, 1) + ".";
+        return this.name.charAt(0) + ".";
     }
 
     @Override
